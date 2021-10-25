@@ -1,9 +1,8 @@
 pipeline {
-  agent any
-  stages {
-    agent {
+  agent {
       docker { image 'python:3.8-slim' }
-    }
+  }
+  stages {
     stage('Unit Test') {
       steps {
         sh 'python -m pytest .\\CONVERT_SERVICE\\convert_service\\convert_app\\test\\test_ffmpeg_execute.py'
