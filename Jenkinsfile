@@ -4,7 +4,7 @@ pipeline {
     stage('Unit Test') {
       agent {
         docker {
-          image 'python:3.8-slim'
+          image 'python:3.8'
         }
       }
       steps {
