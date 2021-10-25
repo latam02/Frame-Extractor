@@ -1,13 +1,13 @@
 pipeline {
   agent any
   stages {
-    agent {
+    stage('Unit Test') {
+      agent {
         docker { 
           image 'crgv/python-c:3.8.12'
           args '--name python-c-ut'
           }
-    }
-    stage('Unit Test') {
+      }
       steps {
         sh 'pip install -r CONVERT_SERVICE/requirements.txt'
         sh 'echo /usr/bin/ffmpeg'
