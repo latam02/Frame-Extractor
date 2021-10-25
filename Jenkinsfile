@@ -8,8 +8,8 @@ pipeline {
         }
       }
       steps {
+        withEnv(["HOME=${env.WORKSPACE}"])
         sh 'ls -la'
-        sh 'pip --version'
         sh 'pip install --user -r requirements.txt'
         sh 'python -m pytest -vv --cov=app .\\CONVERT_SERVICE\\convert_service\\convert_app\\test\\test_ffmpeg_execute.py'
       }
