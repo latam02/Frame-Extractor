@@ -1,17 +1,18 @@
 pipeline {
-  agent any
+  agent {
+      docker { image 'python:3.8-slim' }
+  }
   stages {
-    stage('Build') {
-      steps {
-        sh 'echo Hello World'
-      }
-    }
-
     stage('Unit Test') {
       steps {
-        sh 'echo Testing Stage'
+        sh 'python -m pytest -vv --cov=app .\convert_app\test\test_ffmpeg_execute.py'
       }
     }
+    // post {
+    //   always {
+    //     archiveArtifacts 'dir1/reports/html'
+    //   }
+    // }
 
   }
 }
