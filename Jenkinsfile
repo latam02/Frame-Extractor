@@ -1,21 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('UnitTest') {
-      agent {
-        docker { image 'crgv/python-c:3.8.12' }
-      }
-      steps { 
-          sh 'pip install -r CONVERT_SERVICE/requirements.txt'
-          sh 'mkdir -p dir1/reports/html'
-          sh 'echo reports > dir1/reports/html/index.html'
-          sh 'ls -la ./**' 
-      }
-      post {
-        always {
-          archiveArtifacts 'dir1/reports/html'
-        }
+    stage('Unit Test') {
+      steps {
+        sh 'pip install -r CONVERT_SERVICE/requirements.txt'
+        sh 'ffmpeg -version'
+        sh 'python -m pytest ./CONVERT_SERVICE/convert_service/convert_app/test/test_ffmpeg_execute.py'
       }
     }
+
   }
 }
