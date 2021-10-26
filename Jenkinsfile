@@ -8,7 +8,6 @@ pipeline {
           }
       }
       steps {
-          // sh 'ffmpeg -version'
           sh 'pip install -r CONVERT_SERVICE/requirements.txt'
           sh 'python -m pytest ./CONVERT_SERVICE/convert_service/convert_app/test/test_ffmpeg_execute.py'
           sh 'echo new > report.html'
