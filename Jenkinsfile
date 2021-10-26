@@ -8,7 +8,6 @@ pipeline {
           }
       }
       steps {
-          sh 'mkdir -p /var/lib/apt/lists/partial'
           sh 'apt update'
           sh 'apt install ffmpeg'
           sh 'ffmpeg -version'
