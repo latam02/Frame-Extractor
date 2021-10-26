@@ -16,7 +16,7 @@ pipeline {
       }
       post {
         always {
-          archiveArtifacts artifacts: '**', followSymlinks: false
+          archiveArtifacts artifacts: '/var/jenkins_home/workspace/FE_jenkins/test/reports_html.html', followSymlinks: false
         }
       }
     }
