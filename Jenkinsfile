@@ -15,7 +15,7 @@ pipeline {
       }
       post {
         always {
-          archiveArtifacts artifacts: '/var/jenkins_home/workspace/FE_jenkins/test/reports_html.html', followSymlinks: false
+          archiveArtifacts artifacts: '/var/jenkins_home/workspace/Frame-Extractor_mb-jenkins@2/reports_html.html', followSymlinks: false
         }
       }
     }
