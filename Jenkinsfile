@@ -13,7 +13,7 @@ pipeline {
       }
       steps { 
           sh 'echo ${HOST_WORKSPACE}'
-          sh 'pip install -r CONVERT_SERVICE/requeriments.txt'
+          sh 'pip install -r CONVERT_SERVICE/requirements.txt'
           sh 'ls -la /tmp/reports/'
           sh 'touch /tmp/reports/filereport'
       }
