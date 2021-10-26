@@ -4,7 +4,7 @@ pipeline {
     stage('UnitTest') {
       agent {
         docker { 
-          image 'crgv/python-c:3.8.12'
+          image 'crgv/python-c-ffmpeg:3.12.8'
           }
       }
       steps {
