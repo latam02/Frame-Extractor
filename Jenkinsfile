@@ -8,7 +8,8 @@ pipeline {
           }
       }
       steps {
-          sh 'pip install -r CONVERT_SERVICE/requirements.txt'
+          sh 'pip install --upgrade pip'
+          sh 'pip install -r CONVERT_SERVICE/requirements.txt --no-cache-dir'
           sh 'python -m pytest ./CONVERT_SERVICE/convert_service/convert_app/test/test_ffmpeg_execute.py'
           sh 'echo new > report.html'
           sh 'ls -la'
