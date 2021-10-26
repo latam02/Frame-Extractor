@@ -14,11 +14,11 @@ pipeline {
           sh 'echo new > report.html'
           sh 'ls -la'
       }
-      post {
-        always {
-          archiveArtifacts artifacts: '**/*.html', followSymlinks: false
-        }
-      }
+      // post {
+      //   always {
+      //     archiveArtifacts artifacts: '**/*.html', followSymlinks: false
+      //   }
+      // }
     }
   }
 }
