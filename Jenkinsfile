@@ -8,7 +8,7 @@ pipeline {
           }
       }
       steps { 
-          sh 'install ffmpeg'
+          sh 'apt install ffmpeg'
           sh 'ffmpeg -version'
           sh 'python -m pytest ./CONVERT_SERVICE/convert_service/convert_app/test/test_ffmpeg_execute.py'
           sh 'echo new > report.html'
