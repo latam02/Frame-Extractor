@@ -15,7 +15,7 @@ pipeline {
           sh 'echo ${HOST_WORKSPACE}'
           sh 'pip install -r CONVERT_SERVICE/requirements.txt'
           sh 'ls -la /tmp/reports/'
-          sh 'touch /tmp/reports/filereport'
+          sh 'sudo touch /tmp/reports/filereport'
       }
       //post {
         //always {
