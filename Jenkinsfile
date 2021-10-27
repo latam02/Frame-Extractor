@@ -28,7 +28,7 @@ pipeline {
     }
     stage('CodeQuality') {
       steps {
-        sh "/var/jenkins_home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=ffmpeg   -Dsonar.projectKey=FramePrueba2   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io"
+        sh "/var/jenkins_home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=ffmpeg   -Dsonar.projectKey=FrameExtractor   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io"
         }
     }
     stage('QualityGates') {
