@@ -35,7 +35,6 @@ pipeline {
         sh 'echo get the compute results: Failed/Passed for your scanned project'
         }
     } 
-    }
   }
 }
 
