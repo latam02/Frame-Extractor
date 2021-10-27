@@ -17,6 +17,7 @@ pipeline {
           dir('CONVERT_SERVICE/convert_service') {
           sh 'python -m pytest -r ./convert_app/test/test_ffmpeg_execute.py'
           sh 'python -m pytest --html=../../report.html -s'
+
         }
       }
       post {
@@ -27,7 +28,8 @@ pipeline {
     }
     stage('CodeQuality') {
       steps {
-        sh "/var/jenkins_home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=latam02-cv   -Dsonar.projectKey=convert-video   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io"
+        sh 'echo ${SONAR_TOKEN}'
+        sh "export ${SONAR_TOKEN} && /var/jenkins_home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=latam02-cv   -Dsonar.projectKey=convert-video   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io"
         }
     }
     stage('QualityGates') {
