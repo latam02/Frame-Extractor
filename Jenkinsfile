@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    SONAR_TOKEN=credentials('sonar_token')
+    SONAR_TOKEN=credentials('sonar_token2')
   }
   stages {
     stage('UnitTest') {
@@ -28,8 +28,7 @@ pipeline {
     }
     stage('CodeQuality') {
       steps {
-        sh 'echo ${SONAR_TOKEN}'
-        sh "export ${SONAR_TOKEN} && /var/jenkins_home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=latam02-cv   -Dsonar.projectKey=convert-video   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io"
+        sh "/var/jenkins_home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=latam02-cv   -Dsonar.projectKey=convert-video   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io"
         }
     }
     stage('QualityGates') {
