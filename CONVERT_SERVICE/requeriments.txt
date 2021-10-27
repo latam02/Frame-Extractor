@@ -1,5 +1,0 @@
-py==1.10.0
-pyparsing==2.4.7
-pytest==6.2.5
-pytest-cov==3.0.0
-pytz==2021.3
