@@ -36,23 +36,23 @@ pipeline {
         sh 'echo get the compute results: Failed/Passed for your scanned project'
         }
     }
-        stage('Package'){
-      steps {
-        sh 'docker build -t ${IMAGE_NAME}:${TAG_VERSION} .'
-      }
-    }
-    stage('Publish'){
-      steps {
-        sh 'docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}'
-        sh 'docker tag ${IMAGE_NAME}:${TAG_VERSION} crgv/${IMAGE_NAME}:${TAG_VERSION}'
-        sh 'docker push crgv/${IMAGE_NAME}:${TAG_VERSION}'
-      }
-    }
-    stage('Deploy'){
-      steps {
-        sh 'echo deploy'
-      }
-    } 
+    //     stage('Package'){
+    //   steps {
+    //     sh 'docker build -t ${IMAGE_NAME}:${TAG_VERSION} .'
+    //   }
+    // }
+    // stage('Publish'){
+    //   steps {
+    //     sh 'docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}'
+    //     sh 'docker tag ${IMAGE_NAME}:${TAG_VERSION} crgv/${IMAGE_NAME}:${TAG_VERSION}'
+    //     sh 'docker push crgv/${IMAGE_NAME}:${TAG_VERSION}'
+    //   }
+    // }
+    // stage('Deploy'){
+    //   steps {
+    //     sh 'echo deploy'
+    //   }
+    // } 
   }
 }
 
