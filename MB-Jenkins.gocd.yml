@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  MB-Jenkins:
+  Frame-Extractor:
     group: mb-latam02
     label_template: ${COUNT}
     lock_behavior: none
