@@ -1,0 +1,33 @@
+format_version: 10
+pipelines:
+  test:
+    group: mb-latam02
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-4eb01cb:
+        git: https://github.com/latam02/Frame-Extractor.git
+        username: MatiasBonifacio
+        shallow_clone: false
+        auto_update: true
+        branch: MB-Jenkins
+        encrypted_password: AES:2N8S5nlwv2hllxhDaXIojg==:pE+8948hwbi6VOM2xa6o+g==
+    stages:
+    - step1:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          hi:
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - Hello
+                - World
+                command: echo
+                run_if: passed
