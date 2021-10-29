@@ -33,7 +33,5 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ffmpeg/', include('convert_app.urls')),
-    path('convertvideo/', include('convert_video.urls')),
-    path('convertimage/', include('convert_image.urls'))
 ] + static("/media", document_root=settings.MEDIA_ROOT)   # KB: https://stackoverflow.com/questions/63437229/how-to-show-list-of-file-urls-stored-in-media-folder-using-django-rest-framework
 
