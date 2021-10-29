@@ -14,7 +14,7 @@ pipelines:
         branch: MB-Jenkins
         encrypted_password: AES:ufoWDph+ro3h1pM+pXw0Ug==:kd4QiZq4jVgZDMv5gS2luA==
     stages:
-    - step1:
+    - unitTest:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
