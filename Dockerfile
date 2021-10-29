@@ -17,4 +17,4 @@ COPY . .
 
 EXPOSE 8085
 
-ENTRYPOINT ["python","./CONVERT_SERVICE/convert_service/manage.py","runserver"]
+ENTRYPOINT ["python","manage.py","runserver"]
