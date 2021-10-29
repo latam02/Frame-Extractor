@@ -58,7 +58,7 @@ pipeline {
      }
     stage('Deploy'){
        steps {
-         sh 'docker run -e 8000:8085 -d ${IMAGE_NAME}:${TAG_VERSION}'
+         sh 'docker run -e 8085:8000 -d ${IMAGE_NAME}:${TAG_VERSION}'
        }
      } 
   }
