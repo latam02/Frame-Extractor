@@ -16,3 +16,5 @@ RUN pip install --no-cache-dir -r /src/requeriments.txt
 COPY . .
 
 EXPOSE 8085
+
+ENTRYPOINT ["python","./CONVERT_SERVICE/convert_service/manage.py","runserver"]
