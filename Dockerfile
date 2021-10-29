@@ -10,7 +10,7 @@ WORKDIR /src
 
 COPY ./CONVERT_SERVICE/requirements.txt .
 
-RUN pip install --no-cache-dir requirements.txt
+RUN pip install -r requirements.txt --no-cache-dir 
 
 # Install application into container
 COPY . .
