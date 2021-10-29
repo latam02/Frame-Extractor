@@ -32,12 +32,16 @@ pipeline {
     }
     stage('CodeQuality') {
       steps {
+        withSonarQubeEnv('sonarcloud') {
         sh "/var/jenkins_home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=ffmpeg   -Dsonar.projectKey=FrameExtractor   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io"
+          }
         }
     }
     stage('QualityGates') {
       steps {
-        sh 'echo get the compute results: Failed/Passed for your scanned project'
+        timeout(time: 1, unit: 'HOURS') {
+            waitForQualityGate abortPipeline: true
+          }
         }
     }
     stage('Package'){
