@@ -15,6 +15,6 @@ RUN pip install -r requirements.txt --no-cache-dir
 # Install application into container
 COPY . .
 
-EXPOSE 8000
+EXPOSE 8085
 
-ENTRYPOINT ["python","./CONVERT_SERVICE/convert_service/manage.py","runserver","0.0.0.0:8000"]
+ENTRYPOINT ["python","./CONVERT_SERVICE/convert_service/manage.py","runserver"]
