@@ -8,9 +8,9 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /src
 
-COPY requirements.txt /src/requirements.txt
+COPY ./CONVERT_SERVICE/requirements.txt .
 
-RUN pip install -r CONVERT_SERVICE/requirements.txt --no-cache-dir
+RUN pip install --no-cache-dir requirements.txt
 
 # Install application into container
 COPY . .
