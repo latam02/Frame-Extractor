@@ -26,9 +26,8 @@ def ffmpegexecute(videopath):
 
     # Execute class fmex_execute
     execute = Execute(command)
-    execute.run()
 
-    return command
+    return execute.run()
 
 
 # In our output of images %04d = 4 zeros equals 2,70 hrs, %05d = 5 zeros equals 27 hrs
