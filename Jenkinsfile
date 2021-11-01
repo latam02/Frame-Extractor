@@ -58,7 +58,7 @@ pipeline {
      }
     stage('Deploy'){
        steps {
-         sh 'docker run -d -p 8085:8000 masterbonixd/${IMAGE_NAME}:${TAG_VERSION}'
+         sh 'docker run -d -p 8085:8080 masterbonixd/${IMAGE_NAME}:${TAG_VERSION}'
        }
      } 
   }
