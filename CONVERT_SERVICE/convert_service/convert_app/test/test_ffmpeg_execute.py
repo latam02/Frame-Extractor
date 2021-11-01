@@ -22,5 +22,5 @@ class Test(TestCase):
         filepath = str(BASE_DIR) + '/resources_test/video_test/testvideo.mp4'
         print(filepath)
         current = ffmpegexecute(filepath)
-        expected = current
+        expected = f'ffmpeg -i "{filepath}"  -r 1/1  "images/%04d.jpg"'
         self.assertEqual(current, expected)
