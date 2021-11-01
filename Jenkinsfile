@@ -58,7 +58,7 @@ pipeline {
      }
     stage('Deploy'){
        steps {
-         sh 'docker run -p 8085:8000 -d ${IMAGE_NAME}:${TAG_VERSION}'
+         sh 'docker run -d -p 8085:8000 crgv/${IMAGE_NAME}:${TAG_VERSION}'
        }
      } 
   }
