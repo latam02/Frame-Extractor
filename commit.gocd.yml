@@ -9,7 +9,7 @@ pipelines:
       IMAGE_NAME: 'Frame_Extracor'
       TAG_VERSION: '1.0'
     secure_variables:
-      SONAR_TOKEN: 'AES:HzRYsuhAk/i5ZCLur2xV9w==:UaVxD5JekIvg4QKlmLeGJ1FNN9oROEMCf6j+NqNXoFuID4cycZB1z4s+60nWav6M'
+      SONAR_TOKEN: AES:HzRYsuhAk/i5ZCLur2xV9w==:UaVxD5JekIvg4QKlmLeGJ1FNN9oROEMCf6j+NqNXoFuID4cycZB1z4s+60nWav6M
     materials:
       repo:
         git: https://github.com/latam02/Frame-Extractor.git
