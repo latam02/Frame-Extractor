@@ -16,7 +16,7 @@ pipelines:
         username: matiboni99@gmail.com
         shallow_clone: false
         auto_update: true
-        branch: MB-Jenkins
+        branch: Task-8
         encrypted_password: AES:ufoWDph+ro3h1pM+pXw0Ug==:kd4QiZq4jVgZDMv5gS2luA==
     stages:
     - unitTest:
