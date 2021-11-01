@@ -30,7 +30,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - sudo pip3 install -r CONVERT_SERVICE/requirements.txt --no-cache-dir
+                - pip3 install -r CONVERT_SERVICE/requirements.txt --no-cache-dir
                 command: bash
                 run_if: passed
 
