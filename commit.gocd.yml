@@ -6,8 +6,8 @@ pipelines:
     lock_behavior: none
     display_order: -1
     environments_variables:
-      IMAGE_NAME: Frame_Extractor
-      TAG_VERSION: 1.0
+      IMAGE_NAME: 'Frame_Extractor'
+      TAG_VERSION: '1.0'
       DOCKER_USER: masterbonixd
     secure_variables:
       SONAR_TOKEN: AES:HzRYsuhAk/i5ZCLur2xV9w==:UaVxD5JekIvg4QKlmLeGJ1FNN9oROEMCf6j+NqNXoFuID4cycZB1z4s+60nWav6M
@@ -62,7 +62,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - docker build -t $IMAGE_NAME:$TAG_VERSION .
+                - docker build -t ${IMAGE_NAME}/${TAG_VERSION} .
                 command: bash
                 run_if: passed
             - exec:
