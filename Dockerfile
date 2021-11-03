@@ -8,11 +8,13 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /src
 
-COPY requirements.txt /src/requirements.txt
+COPY ./CONVERT_SERVICE/requirements.txt .
 
-RUN pip install --no-cache-dir -r /src/requeriments.txt 
+RUN pip install -r requirements.txt --no-cache-dir 
 
 # Install application into container
 COPY . .
 
 EXPOSE 8085
+
+ENTRYPOINT ["python","./CONVERT_SERVICE/convert_service/manage.py","runserver", "0.0.0.0:8000"]

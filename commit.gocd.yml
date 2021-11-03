@@ -1,0 +1,50 @@
+format_version: 10
+pipelines:
+  Frame-Extractor:
+    group: latam02
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    environments_variables:
+      IMAGE_NAME: 'Frame_Extracor'
+      TAG_VERSION: '1.0'
+    secure_variables:
+      SONAR_TOKEN: AES:HzRYsuhAk/i5ZCLur2xV9w==:UaVxD5JekIvg4QKlmLeGJ1FNN9oROEMCf6j+NqNXoFuID4cycZB1z4s+60nWav6M
+    materials:
+      repo:
+        git: https://github.com/latam02/Frame-Extractor.git
+        username: matiboni99@gmail.com
+        shallow_clone: false
+        auto_update: true
+        branch: Task-8
+        encrypted_password: AES:ufoWDph+ro3h1pM+pXw0Ug==:kd4QiZq4jVgZDMv5gS2luA==
+    stages:
+    - unitTest:
+        fetch_materials: true
+        jobs:
+          unit:
+            resources:
+              - ubuntu
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - -c
+                - pip3 install -r CONVERT_SERVICE/requirements.txt
+                command: bash
+                run_if: passed
+
+    - codeQuality:
+        fetch_materials: true
+        jobs:
+          unit:
+            resources:
+              - centos
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - -c
+                - /home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=ffmpeg   -Dsonar.projectKey=FrameExtractor   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io
+                command: bash
+                run_if: passed
