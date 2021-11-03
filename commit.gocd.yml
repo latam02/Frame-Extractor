@@ -62,7 +62,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - docker build -t ${IMAGE_NAME}:${TAG_VERSION} .
+                - docker build --tag ${IMAGE_NAME}:${TAG_VERSION} .
                 command: bash
                 run_if: passed
             - exec:
@@ -83,5 +83,8 @@ pipelines:
                 - docker push ${DOCKER_USER}/${IMAGE_NAME}:${TAG_VERSION}
                 command: bash
                 run_if: passed
+            artifacts:
+              - build:
+                  source: CONVERT_SERVICE/requirements.txt
 
 
