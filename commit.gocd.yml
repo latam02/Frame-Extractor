@@ -62,7 +62,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - docker build -t ${IMAGE_NAME}:${TAG_VERSION} .
+                - docker build -t Frame_Extractor:1.0 .
                 command: bash
                 run_if: passed
             - exec:
