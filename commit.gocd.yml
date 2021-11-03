@@ -9,9 +9,9 @@ pipelines:
       IMAGE_NAME: 'Frame_Extracor'
       TAG_VERSION: '1.0'
       DOCKER_USER: 'masterbonixd'
-      DOCKER_PASSWORD: AES:TuJzveh3/wrN5WXx8dshuw==:QwFbm0mOTtiPCS4TaYN83w==
     secure_variables:
       SONAR_TOKEN: AES:HzRYsuhAk/i5ZCLur2xV9w==:UaVxD5JekIvg4QKlmLeGJ1FNN9oROEMCf6j+NqNXoFuID4cycZB1z4s+60nWav6M
+      DOCKER_PASSWORD: AES:TuJzveh3/wrN5WXx8dshuw==:QwFbm0mOTtiPCS4TaYN83w==
     materials:
       repo:
         git: https://github.com/latam02/Frame-Extractor.git
