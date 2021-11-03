@@ -8,6 +8,8 @@ pipelines:
     environments_variables:
       IMAGE_NAME: 'Frame_Extracor'
       TAG_VERSION: '1.0'
+      DOCKER_USER: 'masterbonixd'
+      DOCKER_PASSWORD: AES:TuJzveh3/wrN5WXx8dshuw==:QwFbm0mOTtiPCS4TaYN83w==
     secure_variables:
       SONAR_TOKEN: AES:HzRYsuhAk/i5ZCLur2xV9w==:UaVxD5JekIvg4QKlmLeGJ1FNN9oROEMCf6j+NqNXoFuID4cycZB1z4s+60nWav6M
     materials:
@@ -48,3 +50,38 @@ pipelines:
                 - /home/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner   -Dsonar.organization=ffmpeg   -Dsonar.projectKey=FrameExtractor   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io
                 command: bash
                 run_if: passed
+    
+    - Publish:
+        fetch_materials: true
+        jobs:
+          unit:
+            resources:
+              - docker
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - -c
+                - docker build -t ${IMAGE_NAME}:${TAG_VERSION} .
+                command: bash
+                run_if: passed
+            - exec:
+                arguments:
+                - -c
+                - docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+                command: bash
+                run_if: passed
+            - exec:
+                arguments:
+                - -c
+                - docker tag ${IMAGE_NAME}:${TAG_VERSION} ${DOCKER_USER}/${IMAGE_NAME}:${TAG_VERSION}
+                command: bash
+                run_if: passed
+            - exec:
+                arguments:
+                - -c
+                - docker push ${DOCKER_USER}/${IMAGE_NAME}:${TAG_VERSION}
+                command: bash
+                run_if: passed
+
+
