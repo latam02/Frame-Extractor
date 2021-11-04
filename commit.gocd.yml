@@ -60,7 +60,7 @@ pipelines:
     - Publish:
         fetch_materials: true
         jobs:
-          unit:
+          publish:
             resources:
               - docker
             timeout: 0

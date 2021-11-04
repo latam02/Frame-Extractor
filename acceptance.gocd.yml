@@ -24,7 +24,7 @@ pipelines:
             - fetch:
                 pipeline: Frame-Extractor
                 stage: Publish
-                job: Publish
+                job: publish
                 source: requirements.txt
                 run_if: passed
                 is_file: true
