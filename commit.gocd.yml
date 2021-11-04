@@ -38,7 +38,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - python -m pytest --html=../../report.html -s
+                - python3 -m pytest --html=../../report.html -s
                 command: bash
                 run_if: passed
             artifacts:
