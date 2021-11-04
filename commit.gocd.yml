@@ -35,6 +35,12 @@ pipelines:
                 - pip3 install -r CONVERT_SERVICE/requirements.txt
                 command: bash
                 run_if: passed
+            artifacts:
+              - build:
+                  source: CONVERT_SERVICE/requirements.txt
+              - test:
+                  source: CONVERT_SERVICE/requirements.txt
+
 
     - codeQuality:
         fetch_materials: true
