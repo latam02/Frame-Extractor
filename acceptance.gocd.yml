@@ -62,7 +62,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - docker build -t ${image_name}:${tag_version} .
+                - docker build -t ${IMAGE_NAME} ${TAG_VERSION}
                 command: bash
                 run_if: passed
             - exec:
