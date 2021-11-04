@@ -35,9 +35,15 @@ pipelines:
                 - pip3 install -r CONVERT_SERVICE/requirements.txt
                 command: bash
                 run_if: passed
+            - exec:
+                arguments:
+                - -c
+                - python -m pytest --html=../../report.html -s
+                command: bash
+                run_if: passed
             artifacts:
               - build:
-                  source: CONVERT_SERVICE/requirements.txt
+                  source: report.html
 
     - codeQuality:
         fetch_materials: true
