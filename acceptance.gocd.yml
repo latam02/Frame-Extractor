@@ -1,0 +1,55 @@
+format_version: 10
+pipelines:
+  Frame-Extractor-Acceptance:
+    group: latam02
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    environment_variables:
+      IMAGE_NAME: 'frame_extractor'
+      TAG_VERSION: '1.0'
+    materials:
+      Frame-Extractor:
+        pipeline: Frame-Extractor
+        stage: Publish
+    stages:
+    - Deploy:
+        fetch_materials: false
+        jobs:
+          docker:
+            resources:
+              - docker
+            timeout: 0
+            tasks:
+            - fetch:
+                pipeline: Frame-Extractor
+                stage: Publish
+                job: publish
+                source: requirements.txt
+                run_if: passed
+                is_file: true
+            - exec:
+                arguments:
+                - -c
+                - docker container stop frame_extractor || true && docker container rm frame_extractor || true
+                command: bash
+            - exec:
+                arguments:
+                - -c
+                - docker run -d -p 8085:8000 --name frame_extractor masterbonixd/${IMAGE_NAME}:${TAG_VERSION}
+                command: bash
+
+    - AcceptanceTest:
+        fetch_materials: true
+        jobs:
+          test:
+            resources:
+              - centos
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - -c
+                - echo run acceptance tests 
+                command: bash
+                run_if: passed
