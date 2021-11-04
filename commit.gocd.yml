@@ -59,12 +59,12 @@ pipelines:
               - docker
             timeout: 0
             tasks:
-            - exec:
-                arguments:
-                - -c
-                - docker build -t ${IMAGE_NAME}/${TAG_VERSION} .
-                command: bash
-                run_if: passed
+            # - exec:
+            #     arguments:
+            #     - -c
+            #     - docker build -t ${IMAGE_NAME}:${TAG_VERSION} .
+            #     command: bash
+            #     run_if: passed
             - exec:
                 arguments:
                 - -c
