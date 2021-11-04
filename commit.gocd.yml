@@ -44,6 +44,8 @@ pipelines:
             artifacts:
               - build:
                   source: report.html
+              - build:
+                  source: CONVERT_SERVICE/requirements.txt
 
     - codeQuality:
         fetch_materials: true
@@ -92,8 +94,5 @@ pipelines:
                 - docker push ${DOCKER_USER}/${IMAGE_NAME}:${TAG_VERSION}
                 command: bash
                 run_if: passed
-            artifacts:
-              - build:
-                  source: CONVERT_SERVICE/requirements.txt
 
 
