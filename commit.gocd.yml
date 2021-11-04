@@ -5,7 +5,7 @@ pipelines:
     label_template: ${COUNT}
     lock_behavior: none
     display_order: -1
-    environments_variables:
+    environment_variables:
       IMAGE_NAME: 'Frame_Extractor'
       TAG_VERSION: '1.0'
       DOCKER_USER: masterbonixd
