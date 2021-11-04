@@ -37,7 +37,7 @@ pipelines:
                 run_if: passed
             artifacts:
               - build:
-                  source: report.html
+                  source: CONVERT_SERVICE/requirements.txt
 
     - codeQuality:
         fetch_materials: true
