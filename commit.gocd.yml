@@ -6,7 +6,7 @@ pipelines:
     lock_behavior: none
     display_order: -1
     environment_variables:
-      IMAGE_NAME: 'Frame_Extractor'
+      IMAGE_NAME: 'frame_extractor'
       TAG_VERSION: '1.0'
       DOCKER_USER: masterbonixd
     secure_variables:
