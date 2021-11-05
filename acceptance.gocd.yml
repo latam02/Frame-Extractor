@@ -21,13 +21,6 @@ pipelines:
               - docker
             timeout: 0
             tasks:
-            - fetch:
-                pipeline: Frame-Extractor
-                stage: Publish
-                job: publish
-                source: requirements.txt
-                run_if: passed
-                is_file: true
             - exec:
                 arguments:
                 - -c
